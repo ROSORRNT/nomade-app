@@ -10,11 +10,10 @@ html {
 
 body {
   margin: 0;
-  background: #494e33;
-  color: #ee6123;
+  background: #cf8d2e;
+  color: #000000;
 }
-
-.slide-in-left-enter {
+s .slide-in-left-enter {
   transform: translateX(-100%);
 }
 
