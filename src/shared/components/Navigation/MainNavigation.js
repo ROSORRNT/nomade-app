@@ -12,26 +12,29 @@ import "./NavLinks.css";
 const MainNavigation = props => {
   const [drawIsOpen, setDrawIsOpen] = useState(false);
 
-  const openDrawer = () => {
+  const openDrawerHandler = () => {
     setDrawIsOpen(true);
   };
 
-  const closeDrawer = () => {
+  const closeDrawerHandler = () => {
     setDrawIsOpen(false);
   };
 
   return (
     <React.Fragment>
-      {drawIsOpen && <Backdrop onClick={closeDrawer} />}
-      {drawIsOpen && (
-        <SideDrawer>
-          <nav className="main-navigation__drawer-nav">
-            <NavLinks />
-          </nav>
-        </SideDrawer>
-      )}
+      {drawIsOpen && <Backdrop onClick={closeDrawerHandler} />}
+
+      <SideDrawer show={drawIsOpen} onClick={closeDrawerHandler}>
+        <nav className="main-navigation__drawer-nav">
+          <NavLinks />
+        </nav>
+      </SideDrawer>
+
       <MainHeader>
-        <button className="main-navigation__menu-btn" onClick={openDrawer}>
+        <button
+          className="main-navigation__menu-btn"
+          onClick={openDrawerHandler}
+        >
           <span />
           <span />
           <span />
