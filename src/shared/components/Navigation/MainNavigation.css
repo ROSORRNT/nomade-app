@@ -35,9 +35,9 @@
 }
 
 h1 {
-  font-family: "Sarina", cursive;
-  font-weight: 100;
-  letter-spacing: 1px;
+  font-family: "Calligraffitti", cursive;
+
+  letter-spacing: 2px;
 }
 
 @media (min-width: 768px) {
