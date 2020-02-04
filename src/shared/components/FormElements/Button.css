@@ -4,6 +4,7 @@
   border: 1px solid #e4e932;
   border-radius: 4px;
   background: #2c9f45;
+  box-shadow: 0 2px 6px #22222236;
   color: white;
   cursor: pointer;
   margin-right: 1rem;
@@ -17,12 +18,12 @@
 
 .button:hover,
 .button:active {
-  background: #52325d;
+  background: #371777;
   border-color: #52325d;
 }
 
 .button--inverse {
-  background: #371777;
+  background: #52325d;
   color: white;
 }
 
