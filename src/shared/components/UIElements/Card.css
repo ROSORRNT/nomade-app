@@ -5,11 +5,11 @@
   border-radius: 6px;
   padding: 0.5rem;
   overflow: hidden;
-  background: #be0027;
-  color: #ffe9ca;
+  background: #e4e932;
+  color: #511378;
 }
 
 .card:hover {
-  background: #e4e932;
+  background: #edf169;
   color: #511378;
 }

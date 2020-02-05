@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
 // import { Link } from 'react-router-dom'
 
-import Card from "../../shared/components/UIElements/Card";
-import PlaceItem from "./PlaceItem";
-import "./PlaceList.css";
+import Card from '../../shared/components/UIElements/Card';
+import PlaceItem from './PlaceItem';
+import Button from '../../shared/components/FormElements/Button';
+import './PlaceList.css';
 
 const PlaceList = props => {
   if (props.items.length === 0) {
@@ -11,7 +12,7 @@ const PlaceList = props => {
       <div className="place-list center">
         <Card>
           <h2>Aucun lieu trouvé. Créez en un ?</h2>
-          <button>Parger un lieu</button>
+          <Button to="/places/new">Parger un lieu</Button>
         </Card>
       </div>
     );

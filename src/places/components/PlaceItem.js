@@ -8,9 +8,23 @@ import Map from '../../shared/components/UIElements/Map';
 
 const PlaceItem = props => {
   const [showMap, setShowMap] = useState(false);
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   const openMapHandler = () => setShowMap(true);
   const closeMapHandler = () => setShowMap(false);
+
+  const showDeleteWarningHandler = () => {
+    console.log('coucou');
+    setShowConfirmModal(true);
+  };
+
+  const cancelDeleteHandler = () => {
+    setShowConfirmModal(false);
+  };
+
+  const confirmDeleteHandler = () => {
+    console.log('DELETING...');
+  };
 
   return (
     <React.Fragment>
@@ -30,6 +44,29 @@ const PlaceItem = props => {
           <Map center={props.coordinates} zoom={16} />
         </div>
       </Modal>
+
+      <Modal
+        show={showConfirmModal}
+        onCancel={cancelDeleteHandler}
+        header="Êtes-vous sûr"
+        footerClass="place-item__modal-actions"
+        footer={
+          <React.Fragment>
+            <Button onClick={cancelDeleteHandler} inverse>
+              Annuler
+            </Button>
+            <Button onClick={confirmDeleteHandler} danger>
+              Supprimer
+            </Button>
+          </React.Fragment>
+        }
+      >
+        <p>
+          Voulez-vous vraiment supprimer ce lieu ? Sachez que cette action ne
+          pourra être annulée par la suite.
+        </p>
+      </Modal>
+
       <li className="place-item">
         <Card className="place-item__content">
           <div className="place-item__image">
@@ -45,7 +82,9 @@ const PlaceItem = props => {
               Voir sur la carte
             </Button>
             <Button to={`/places/${props.id}`}>Editer</Button>
-            <Button danger>Supprimer</Button>
+            <Button danger onClick={showDeleteWarningHandler}>
+              Supprimer
+            </Button>
           </div>
         </Card>
       </li>

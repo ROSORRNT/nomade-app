@@ -20,7 +20,7 @@ export const DUMMY_PLACES = [
   },
   {
     id: 'p2',
-    title: 'Musée du Louvre',
+    title: 'Le Louvre',
     description:
       "Le Louvre possède une longue histoire de conservation artistique et historique, depuis l'Ancien Régime jusqu'à nos jours.",
     imageUrl:
