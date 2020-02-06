@@ -4,7 +4,7 @@ import { DUMMY_PLACES } from './UserPlaces';
 import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import Card from '../../shared/components/UIElements/Card';
-import { useForm } from '../../shared/hooks/form-kook';
+import { useForm } from '../../shared/hooks/form-hook';
 import './PlaceForm.css';
 import {
   VALIDATOR_REQUIRE,
