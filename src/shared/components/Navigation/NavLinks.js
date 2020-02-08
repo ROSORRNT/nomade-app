@@ -1,11 +1,14 @@
 // the collection of links we renders in MainNavigation
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../context/auth-context';
 
 import './NavLinks.css';
 
 const NavLinks = props => {
+  const auth = useContext(AuthContext);
+
   return (
     <ul className="nav-links">
       <li>
@@ -13,15 +16,26 @@ const NavLinks = props => {
           Utilisateurs
         </NavLink>
       </li>
-      <li>
-        <NavLink to="/u1/places">Mes Lieux</NavLink>
-      </li>
-      <li>
-        <NavLink to="/places/new">Ajouter un Lieu</NavLink>
-      </li>
-      <li>
-        <NavLink to="/auth">Authentification</NavLink>
-      </li>
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/u1/places">Mes Lieux</NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
+          <NavLink to="/places/new">Ajouter un Lieu</NavLink>
+        </li>
+      )}
+      {!auth.isLoggedIn && (
+        <li>
+          <NavLink to="/auth">Authentification</NavLink>
+        </li>
+      )}
+      {auth.isLoggedIn && (
+        <li>
+          <button onClick={auth.logout}>Déconnexion</button>
+        </li>
+      )}
     </ul>
   );
 };

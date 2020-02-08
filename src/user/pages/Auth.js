@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import {
   VALIDATOR_EMAIL,
@@ -9,10 +9,12 @@ import Input from '../../shared/components/FormElements/Input';
 import Button from '../../shared/components/FormElements/Button';
 import Card from '../../shared/components/UIElements/Card';
 import { useForm } from '../../shared/hooks/form-hook';
+import { AuthContext } from '../../shared/context/auth-context';
 import './Auth.css';
 import '../../places/pages/PlaceForm.css';
 
 const Auth = () => {
+  const auth = useContext(AuthContext);
   const [isLoginMode, setIsLoginMode] = useState(false);
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -55,6 +57,7 @@ const Auth = () => {
   const authSubmitHandler = event => {
     event.preventDefault();
     console.log(formState.inputs);
+    auth.login();
   };
 
   return (
@@ -90,17 +93,6 @@ const Auth = () => {
           error="Veuillez, entrez un mot de passe valide (minimum de 5 caractères)"
           onInput={inputHandler}
         />
-        {/* {!isLoginMode && (
-          <Input
-            element="input"
-            id="password-confirm"
-            type="password"
-            label="Confirmation du mot de passe"
-            validators={[VALIDATOR_MINLENGTH(5)]}
-            errorText="Veuillez, entrez un mot de passe valide (minimum de 5 caractères)"
-            onInput={() => {}}
-          />
-        )} */}
         <Button type="submit" disabled={!formState.isValid}>
           {isLoginMode ? "S'identifier" : "S'inscrire"}
         </Button>
